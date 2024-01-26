@@ -10,7 +10,7 @@ console.table([accountId,accountName,accountPassword,acccountCity,email]);
 /*
  Avoid using var
  because of the block scope ..it can be changes even in blocks also
- so frequenty use let for variable 
+ so frequently use let for variable 
  dont use variables without any key word also like accountcity in the example
 */
 
