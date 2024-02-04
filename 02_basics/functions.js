@@ -1,12 +1,17 @@
 function add2nums(num1,num2){
-    return num1+num2;
+    result=num1+num2;
+    if(!result){//anything not result i.e not num
+        console.log("Enter numbers");
+        return
+    }
+    return result;
 }
-// console.log(add2nums(1,2));
+//console.log(add2nums(1,2));
 // console.log(add2nums(1,'2'));
 // console.log(add2nums(1,'a'));//therefore we need to specify
-// console.log(add2nums(1,null)); //conditions
-// console.log(add2nums(1,undefined));
-// console.log(add2nums(6,true));
+//console.log(add2nums(1,null)); //conditions
+//console.log(add2nums(1,undefined));
+//console.log(add2nums(6,true));
 
 const seriesheroes={
     2521:'nam joo hyuk',
