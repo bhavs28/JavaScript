@@ -4,6 +4,8 @@
 
 //for of and for each on maps
 
+ /*the forEach method iterates over each element in an array and applies the provided callback function to each element. This callback function typically takes three arguments: the current element being processed, the index of that element, and the array itself.*/
+ 
 const map=new Map();
 map.set('klaus','joseph moragan');
 map.set('stefan','paul wesly');
