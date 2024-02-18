@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121;color: #fff;">
+    <ul class="characters">
+        <li>Harry Potter</li>
+    </ul>
+</body>
+<script>
+    function addcharc(charc){
+        const li=document.createElement('li');
+        li.innerHTML=`${charc}`//traverses the total tree
+        document.querySelector('.characters').appendChild(li)
+    }
+    addcharc("Hermoine Granger")
+
+    function optiwayadd(charc){
+        const li=document.createElement('li')
+        li.appendChild(document.createTextNode(charc))//creates ele li,then appends the text node directly to the list ele
+        document.querySelector('.characters').appendChild(li)
+        //selects the class and appends the list ele
+    }
+    optiwayadd("Ronald Weasly")
+
+    //edit
+    
+</script>
+</html>
