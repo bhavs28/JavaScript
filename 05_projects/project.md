@@ -105,3 +105,95 @@ setInterval(function(){
   clock.innerHTML=date.toLocaleTimeString()
 },1000)
 ```
+
+## Project 4
+
+```javascript
+
+let randomnumber=parseInt(Math.random()*100+1)
+
+const submit=document.querySelector('#subt')
+const userInput=document.querySelector('.guessField')
+const guessSlot=document.querySelector('.guesses')
+const remaining=document.querySelector('.lastResult')
+const lowOrHi=document.querySelector('.lowOrHi')
+const StartOver=document.querySelector('.resultParas')
+
+const p=document.createElement('p')
+
+
+let numGuess=2;
+
+let playgame=true
+
+if(playgame){
+  submit.addEventListener('click',function(e){
+    e.preventDefault()
+    const guess=parseInt(userInput.value)
+    validation(guess)
+  });
+}
+
+function validation(guess){
+  if(isNaN(guess)){
+    alert('Guess a valid number')
+  }else if(guess<1 || guess>100){
+    alert('Guess a number between 1 and 100')
+  }else{
+   
+    if(numGuess===11){
+      clearupguess(guess)
+      displaymessage(Game Over and the random number was ${randomnumber})
+      endgame()
+    }else{
+      clearupguess(guess)
+      checkguess(guess)
+    }
+  }
+}
+function checkguess(guess){
+  if(guess===randomnumber){
+    displaymessage(You guessed it right)
+    endgame()
+  }else if(guess<randomnumber){
+    displaymessage(Your guess is low)
+  }else{
+    displaymessage(Your guess is high)
+  }
+}
+function clearupguess(guess){
+  userInput.value='';
+  guessSlot.innerHTML+=${guess},
+  remaining.innerHTML=${10-guess}
+  numGuess++;
+}
+function displaymessage(message){
+  lowOrHi.innerHTML=<h2>${message}</h2>
+}
+function endgame(){
+  userInput.value=''
+  userInput.setAttribute('disabled','')
+  p.classList.add('button')
+  p.innerHTML=<h2 id='newgame'>Start a new game</h2>
+  StartOver.appendChild(p)
+  playgame=false
+  newgame()
+}
+function newgame(){
+  const newgamebutton=document.querySelector('#newgame')
+  newgamebutton.addEventListener('click',function(e){
+
+    numGuess=1
+    randomnumber=parseInt(Math.random()*100+1)
+    guessSlot.innerHTML=''
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${10} `;
+    userInput.removeAttribute('disabled');
+    StartOver.removeChild(p);
+
+    playgame=true
+  })
+}
+
+
+```
