@@ -1,6 +1,6 @@
 # Projects related to DOM
 
-## Project 1
+## Project 1  -- background color changing
 ```javascript
 const buttons = document.querySelectorAll('.button');
 const body = document.querySelector('body');
@@ -56,7 +56,7 @@ buttons.forEach(function (button) {
   });
 });
 ```
-## Project 2
+## Project 2 -- BMI Calculator
 
 ```javascript
 const form=document.querySelector('form')
@@ -95,7 +95,7 @@ form.addEventListener('submit',function(e){
 })
 ```
 
-## Project 3
+## Project 3 -- displaying time
 ```javascript
 const clock=document.getElementById('clock')
 
@@ -106,7 +106,7 @@ setInterval(function(){
 },1000)
 ```
 
-## Project 4
+## Project 4 -- Guessing game
 
 ```javascript
 
@@ -195,5 +195,31 @@ function newgame(){
   })
 }
 
+```
 
+## Project 6-Changing colors
+
+```javascript
+const randomcolor=function(){
+  const hex='0123456789ABCDEF'
+  let color='#'
+  for(let i=0;i<6;i++){
+    color+=(Math.floor(Math.random()*16))
+  } 
+  return color 
+}
+let interval
+document.getElementById('start').addEventListener('click',function(){
+  if(!interval){
+    interval=setInterval(function(){
+      document.body.style.backgroundColor=randomcolor()
+    })
+  }
+  //check if it is null and then start changing colors
+})
+
+document.getElementById('stop').addEventListener('click',function(){
+  clearInterval(interval)
+  interval=null//other wise if we press start 2 times we cant stop at all
+})
 ```
