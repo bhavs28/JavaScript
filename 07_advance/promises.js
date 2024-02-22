@@ -26,7 +26,7 @@ new Promise(function(resolve,reject){
 //lets take an obj parameter
 const promiseThree=new Promise(function(resolve,reject){
     setTimeout(function(){
-        resolve({username:'Bhavyasri',password:'anu123'})//passed on to .then()
+        resolve({username:'3 Bhavyasri',password:'anu123'})//passed on to .then()
     },1000)
 }).then((user)=>{
     console.log(user);
@@ -52,3 +52,43 @@ const promiseFour=new Promise(function(resolve,reject){
 .finally(()=>{
     console.log('The promise is either resolved or rejected');
 })
+
+const promiseFive=new Promise(function(resolve,reject){
+    setTimeout(()=>{
+        let error=false
+        if(!error){
+            resolve({username:'5 Javascript',device:'DELL'})
+        }
+        else{
+            reject(' 5 Something went wrong')
+        }
+    },1000)
+})
+async function consumePromiseFive(){
+    // const response=await promiseFive
+    // console.log(response);==>unhandledPromiseRejection error occurs
+
+    try {
+        const response=await promiseFive
+        //we use await keyword before an expression that returns promise
+       console.log(response)
+    } catch (error) {
+        console.log(error);
+    }
+}
+consumePromiseFive()
+//An async function always returns a promise implicitly
+//  The await keyword pauses the execution of the async function until the promise is resolved or rejected
+
+async function getAllUsers(){
+   try{
+        const response= await fetch('https://jsonplaceholder.typicode.com/users')
+        console.log(response);
+        const data=await response.json()
+        //console.log(data);
+   }catch{
+        console.log('error');
+   }
+
+}
+getAllUsers()
