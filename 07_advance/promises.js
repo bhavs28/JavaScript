@@ -80,15 +80,29 @@ consumePromiseFive()
 //An async function always returns a promise implicitly
 //  The await keyword pauses the execution of the async function until the promise is resolved or rejected
 
-async function getAllUsers(){
-   try{
-        const response= await fetch('https://jsonplaceholder.typicode.com/users')
-        console.log(response);
-        const data=await response.json()
-        //console.log(data);
-   }catch{
-        console.log('error');
-   }
+// async function getAllUsers(){
+//    try{
+//         const response= await fetch('https://jsonplaceholder.typicode.com/users')
+//         console.log(response);
+//         const data=await response.json()
+//         //console.log(data);
+//    }catch(error){
+//         console.log('E:',error);
+//    }
 
-}
-getAllUsers()
+// }
+// getAllUsers()
+
+fetch('https://jsonplaceholder.typicode.com/users')//returns a promise object handled by .then
+.then(response=>{
+    return response.json
+})//returns to the next .then
+.then(data=>{
+    console.log(data);
+})
+.catch((error)=>{
+    console.log(error);
+})
+//The fetch function in JavaScript returns a Promise that resolves to a Response object representing the response to the request
+
+//promise.all()-->https://chat.openai.com/share/8019f2f9-1411-412a-93d6-857b54d54068
