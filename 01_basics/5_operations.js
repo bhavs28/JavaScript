@@ -9,11 +9,13 @@ let negvalue=-value;
 // console.log(2**3)
 // console.log(2%3)
 
-// console.log(1+'2');
-// console.log('1'+2 );
-// console.log('1'+'1')
-// console.log('1'+2+3)
-// console.log(2+3+'1')
+// console.log(1+'2');-->12
+// console.log('1'+2 );-->12
+// console.log('1'+'1');-->11
+// console.log('1'+2+3)-->123
+// console.log(2+3+'1')-->51
+//If both operands are numbers, it performs addition. 
+//If one or both operands are strings, it performs concatenation.(from left to right)
 
 console.log(+true)//not recommended coz confusing (o/p:1)
 
