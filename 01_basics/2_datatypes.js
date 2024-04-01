@@ -21,3 +21,8 @@
 console.log(typeof "bhavya"); //string
 console.log(typeof undefined);//undefined
 console.log(typeof null);//object
+
+// When JavaScript was first created, the typeof operator was designed to return 'object'
+// for any value that is a reference type (e.g., arrays, functions, objects). At the time, null was internally represented 
+// as the null pointer, which in many systems was represented as the zero bit pattern, or all zero bits. 
+// Since the lower bits of any reference type in JavaScript were always zero (due to memory alignment), typeof null ended up returning 'object'.
